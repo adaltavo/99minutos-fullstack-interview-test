@@ -1,0 +1,23 @@
+{
+  "name": "gustavos-git-tool",
+  "version": "1.0.0",
+  "description": "My git tool for 99minutos",
+  "main": "express/app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adaltavo/99minutos-fullstack-interview-test.git"
+  },
+  "author": "Gustavo Topete",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adaltavo/99minutos-fullstack-interview-test/issues"
+  },
+  "homepage": "https://github.com/adaltavo/99minutos-fullstack-interview-test#readme"
+}

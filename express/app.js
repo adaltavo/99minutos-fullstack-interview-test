@@ -1,9 +1,17 @@
-const { count } = require('console');
 const express = require('express');
 const main = express();
 const path = require('path');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
+const fs = require('fs');
+// read the .env file and cast it to an object.
+const envFile = fs.existsSync(path.join(__dirname + '/../.env')) ? 
+    Object.assign.apply({}, fs.readFileSync(path.join(__dirname + '/../.env'), 'utf8').split("\n").map(i => {
+        let keyValue = i.split('=');
+        let newObject = {};
+        newObject[keyValue[0]] = keyValue[1];
+        return newObject;
+    })) : {};
 
 // Serve the assets.
 main.use('/js', express.static(path.join(__dirname + '/../js')));
@@ -76,10 +84,10 @@ main.get('/api/project/init', (req,res) => {
     exec("basename -s .git `git config --get remote.origin.url`")
     .then(v => res.json({
         project: v.stdout.trim(),
-        "github username": "adaltavo"
+        "github username": envFile["GITHUB_USER"] || 'octocat',
     }));
 })
 // Start web server.
-main.listen(8083, () => {
-    console.info('Git tool running...');
+main.listen(envFile["HTTP_PORT"] || 8083, () => {
+    console.info('Git tool running on http://127.0.0.1:' + envFile["HTTP_PORT"] || 8083 + '...');
 })

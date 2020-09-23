@@ -1,4 +1,17 @@
 
+## Gustavo's git tool set up
+Setting up the environment is easy. All you need before starting is:
+* Nodejs (and npm)
+* git
+* A github user/account
+* A github token (for authentication)
+
+First, you need to clone this repository with `git clone` command, or whatever technique suits you well.
+Then, `cd` into your projects folder and run `npm install`. After that, create a `.env` file, and set up 2 env variables.
+The first one is `HTTP_PORT` that defines the port on which the app will be running (8083 by default if no value provided).
+The second one is `GITHUB_USER` that defines your github username. You can use the `.example.env` file as a guide.
+Finally, just run `npm run start-dev` and you're all set!
+
 # 99minutos Fullstack Engineer Interview
 Interview test for fullstack Software Engineers
 

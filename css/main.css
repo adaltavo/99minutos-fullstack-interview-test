@@ -109,3 +109,7 @@ pre {
 .text-red {
     color: red;
 }
+
+.text-loading {
+    font-size: xx-large;
+}

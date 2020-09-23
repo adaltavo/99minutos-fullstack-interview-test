@@ -71,7 +71,15 @@ main.get('/api/compare', (req,res) => {
         raw: v.stdout
     }));
 })
-
+// Get the project inits.
+main.get('/api/project/init', (req,res) => {
+    exec("basename -s .git `git config --get remote.origin.url`")
+    .then(v => res.json({
+        project: v.stdout.trim(),
+        "github username": "adaltavo"
+    }));
+})
+// Start web server.
 main.listen(8083, () => {
     console.info('Git tool running...');
 })
